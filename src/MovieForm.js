@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function MovieForm({ submitHandler, movies, setMovieTitle }) {
+export default function MovieForm({ submitHandler, movies, setMovieTitle, setMovieFormDirector }) {
 
   function handleChange(e, setState) {
     setState(e.target.value);
@@ -14,7 +14,7 @@ export default function MovieForm({ submitHandler, movies, setMovieTitle }) {
       </label>
       <label>
         Director
-        <input type="text" />
+        <input value={movies.movieFormDirector} type="text" onChange={(e) => handleChange(e, setMovieFormDirector)} />
       </label>
       <label>
         Year Released

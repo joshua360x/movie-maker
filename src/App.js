@@ -47,7 +47,7 @@ function App() {
         <p>Year Released: {movieFormYearReleased}</p>
         <p>Color: {movieFormColor}</p>
       </section>
-      <MovieForm setMovieTitle={setMovieTitle} submitHandler={submitHandler} movies={movie} />
+      <MovieForm setMovieFormDirector={setMovieFormDirector} setMovieTitle={setMovieTitle} submitHandler={submitHandler} movies={movie} />
       <MovieList />
     </div>
   );
