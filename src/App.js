@@ -12,6 +12,12 @@ function App() {
   const [movieTitle, setMovieTitle] = useState('');
   const [movieFormColor, setMovieFormColor] = useState('');
 
+  const state = {
+    setMovieTitle,
+    setMovieFormDirector,
+    setMovieFormYearReleased,
+    setMovieFormColor,
+  };
   const movie = {
     title: movieTitle,
     director: movieFormDirector,
@@ -47,10 +53,10 @@ function App() {
         <p>Year Released: {movieFormYearReleased}</p>
         <p>Color: {movieFormColor}</p>
       </section>
-      <MovieForm setMovieFormDirector={setMovieFormDirector} setMovieTitle={setMovieTitle} submitHandler={submitHandler} movies={movie} />
+      <MovieForm {...state} submitHandler={submitHandler} movies={movie} />
       <MovieList />
     </div>
   );
 }
-
+// setMovieFormDirector={setMovieFormDirector} setMovieTitle={setMovieTitle}
 export default App;
