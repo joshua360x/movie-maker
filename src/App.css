@@ -55,3 +55,14 @@
   width: 200px;
 }
 
+.formAndList {
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 4fr;
+
+}

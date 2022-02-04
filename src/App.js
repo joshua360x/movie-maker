@@ -68,7 +68,7 @@ function App() {
 
   return (
     <main className="App">
-      <h3>Movie Stuff</h3>
+      <h3>Movies</h3>
       <section className="movieAndSearch">
         <Movie {...movie} />
         <label>
@@ -76,7 +76,7 @@ function App() {
           <input type="text" onChange={(e) => handleFilter(e.target.value)} />
         </label>
       </section>
-      <section>
+      <section className='formAndList'>
         <MovieForm {...state} submitHandler={submitHandler} movies={movie} />
         <MovieList
           movies={filteredMovies.length > 0 ? filteredMovies : allMovies}
