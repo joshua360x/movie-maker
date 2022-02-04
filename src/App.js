@@ -10,6 +10,20 @@ function App() {
   const [movieTitle, setMovieTitle] = useState('');
   const [movieFormColor, setMovieFormColor] = useState('');
 
+
+  function submitHandler() {
+    const newMovie = {
+      title: movieTitle,
+      director: movieFormDirector,
+      year: movieFormYearReleased,
+      color: movieFormColor
+    };
+    setAllMovies([...allMovies, newMovie]);
+  }
+  function deleteMovie() {
+    
+  }
+
   return (
 
 
