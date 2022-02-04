@@ -20,8 +20,12 @@ function App() {
     };
     setAllMovies([...allMovies, newMovie]);
   }
-  function deleteMovie() {
-    
+  function deleteMovieHandler(id) {
+    const indexOfMovie = allMovies.findIndex((movie) => movie.title === id);
+
+    allMovies.splice(indexOfMovie, 1);
+
+    setAllMovies([...allMovies]);
   }
 
   return (
