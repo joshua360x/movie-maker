@@ -1,6 +1,8 @@
 // import logo from './logo.svg';
 import { useState } from 'react';
 import './App.css';
+import MovieForm from './MovieForm';
+import MovieList from './MovieList';
 
 function App() {
   const [allMovies, setAllMovies] = useState([]);
@@ -10,13 +12,21 @@ function App() {
   const [movieTitle, setMovieTitle] = useState('');
   const [movieFormColor, setMovieFormColor] = useState('');
 
+  const movie = {
+    title: movieTitle,
+    director: movieFormDirector,
+    year: movieFormYearReleased,
+    color: movieFormColor,
+  };
 
-  function submitHandler() {
+  function submitHandler(e) {
+    e.preventDefault();
+
     const newMovie = {
       title: movieTitle,
       director: movieFormDirector,
       year: movieFormYearReleased,
-      color: movieFormColor
+      color: movieFormColor,
     };
     setAllMovies([...allMovies, newMovie]);
   }
@@ -29,10 +39,16 @@ function App() {
   }
 
   return (
-
-
     <div className="App">
-      
+      <section>
+        <h3>Movie Stuff</h3>
+        <p>Title: {movieTitle}</p>
+        <p>Director: {movieFormDirector}</p>
+        <p>Year Released: {movieFormYearReleased}</p>
+        <p>Color: {movieFormColor}</p>
+      </section>
+      <MovieForm setMovieTitle={setMovieTitle} submitHandler={submitHandler} movies={movie} />
+      <MovieList />
     </div>
   );
 }
