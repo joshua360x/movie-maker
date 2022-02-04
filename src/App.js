@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 import { useState } from 'react';
 import './App.css';
+import Movie from './Movie';
 import MovieForm from './MovieForm';
 import MovieList from './MovieList';
 
@@ -47,11 +48,8 @@ function App() {
   return (
     <div className="App">
       <section>
-        <h3>Movie Stuff</h3>
-        <p>Title: {movieTitle}</p>
-        <p>Director: {movieFormDirector}</p>
-        <p>Year Released: {movieFormYearReleased}</p>
-        <p>Color: {movieFormColor}</p>
+        <Movie {...movie} />
+
       </section>
       <MovieForm {...state} submitHandler={submitHandler} movies={movie} />
       <MovieList />

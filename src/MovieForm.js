@@ -17,7 +17,7 @@ export default function MovieForm({
       <label>
         Title
         <input
-          value={movies.movieTitle}
+          value={movies.title}
           type="text"
           onChange={(e) => handleChange(e, setMovieTitle)}
         />
@@ -25,14 +25,14 @@ export default function MovieForm({
       <label>
         Director
         <input
-          value={movies.movieFormDirector}
+          value={movies.director}
           type="text"
           onChange={(e) => handleChange(e, setMovieFormDirector)}
         />
       </label>
       <label>
         Year Released
-        <input value={movies.movieFormYearReleased}
+        <input value={movies.year}
           type="text"
           onChange={(e) => handleChange(e, setMovieFormYearReleased)}
         />
@@ -40,11 +40,12 @@ export default function MovieForm({
       <label>
         Color
         <select onChange={(e) => handleChange(e, setMovieFormColor)}>
-          <option value="red">Red</option>
+          <option selected value="red">Red</option>
           <option value="yellow">Yellow</option>
           <option value="pink">Pink</option>
         </select>
       </label>
+      <button>Submit Movie</button>
     </form>
   );
 }
