@@ -67,22 +67,23 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <section>
-        <h3>Movie Stuff</h3>
-
+    <main className="App">
+      <h3>Movie Stuff</h3>
+      <section className="movieAndSearch">
         <Movie {...movie} />
         <label>
           Find Your Movie
           <input type="text" onChange={(e) => handleFilter(e.target.value)} />
         </label>
       </section>
-      <MovieForm {...state} submitHandler={submitHandler} movies={movie} />
-      <MovieList
-        movies={filteredMovies.length > 0 ? filteredMovies : allMovies}
-        deleteMovieHandler={deleteMovieHandler}
-      />
-    </div>
+      <section>
+        <MovieForm {...state} submitHandler={submitHandler} movies={movie} />
+        <MovieList
+          movies={filteredMovies.length > 0 ? filteredMovies : allMovies}
+          deleteMovieHandler={deleteMovieHandler}
+        />
+      </section>
+    </main>
   );
 }
 // setMovieFormDirector={setMovieFormDirector} setMovieTitle={setMovieTitle}

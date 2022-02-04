@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+
+.movieAndSearch {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  margin: 20px;
+  align-items: center;
+  background-color: antiquewhite;
+}
+
+.movieAndSearch label {
+  margin: 40px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
