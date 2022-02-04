@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function Movie({ title, director, year, color }) {
+export default function Movie({ id, title, director, year, color, deleteMovieHandler }) {
   return (
-    <div>
+    <div onClick={() => deleteMovieHandler && deleteMovieHandler(id)}>
       <h4>Title: {title}</h4>
       <p>Director: {director}</p>
       <p>Year Released: {year}</p>

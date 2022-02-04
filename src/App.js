@@ -30,6 +30,7 @@ function App() {
     e.preventDefault();
 
     const newMovie = {
+      id: Math.ceil(Math.random() * 1000),
       title: movieTitle,
       director: movieFormDirector,
       year: movieFormYearReleased,
@@ -38,7 +39,7 @@ function App() {
     setAllMovies([...allMovies, newMovie]);
   }
   function deleteMovieHandler(id) {
-    const indexOfMovie = allMovies.findIndex((movie) => movie.title === id);
+    const indexOfMovie = allMovies.findIndex((movie) => movie.id === id);
 
     allMovies.splice(indexOfMovie, 1);
 
@@ -53,7 +54,7 @@ function App() {
         <Movie {...movie} />
       </section>
       <MovieForm {...state} submitHandler={submitHandler} movies={movie} />
-      <MovieList movies={allMovies} />
+      <MovieList movies={allMovies} deleteMovieHandler={deleteMovieHandler} />
     </div>
   );
 }
