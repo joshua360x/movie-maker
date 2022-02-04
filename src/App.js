@@ -48,11 +48,12 @@ function App() {
   return (
     <div className="App">
       <section>
-        <Movie {...movie} />
+        <h3>Movie Stuff</h3>
 
+        <Movie {...movie} />
       </section>
       <MovieForm {...state} submitHandler={submitHandler} movies={movie} />
-      <MovieList />
+      <MovieList movies={allMovies} />
     </div>
   );
 }
