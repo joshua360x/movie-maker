@@ -13,6 +13,7 @@ function App() {
   const [movieTitle, setMovieTitle] = useState('');
   const [movieFormColor, setMovieFormColor] = useState('');
 
+  // manages state for objects and also holds movie objects for easier naming convention
   const state = {
     setMovieTitle,
     setMovieFormDirector,
@@ -25,7 +26,9 @@ function App() {
     year: movieFormYearReleased,
     color: movieFormColor,
   };
+  // ----------------------------------
 
+  // handle submit
   function submitHandler(e) {
     e.preventDefault();
 
@@ -37,7 +40,14 @@ function App() {
       color: movieFormColor,
     };
     setAllMovies([...allMovies, newMovie]);
+
+    setMovieTitle('');
+    setMovieFormDirector('');
+    setMovieFormYearReleased('');
+    setMovieFormColor('');
   }
+
+  // delete function and this takes in an id
   function deleteMovieHandler(id) {
     const indexOfMovie = allMovies.findIndex((movie) => movie.id === id);
 
@@ -46,15 +56,32 @@ function App() {
     setAllMovies([...allMovies]);
   }
 
+  // filter funtion to help navigate through movies
+  function handleFilter(query) {
+    const movieSearch = allMovies.filter((movie) => movie.title.includes(query));
+    if (query) {
+      setFilteredMovies(movieSearch);
+    } else {
+      setFilteredMovies(allMovies);
+    }
+  }
+
   return (
     <div className="App">
       <section>
         <h3>Movie Stuff</h3>
 
         <Movie {...movie} />
+        <label>
+          Find Your Movie
+          <input type="text" onChange={(e) => handleFilter(e.target.value)} />
+        </label>
       </section>
       <MovieForm {...state} submitHandler={submitHandler} movies={movie} />
-      <MovieList movies={allMovies} deleteMovieHandler={deleteMovieHandler} />
+      <MovieList
+        movies={filteredMovies.length > 0 ? filteredMovies : allMovies}
+        deleteMovieHandler={deleteMovieHandler}
+      />
     </div>
   );
 }
